@@ -1,41 +1,67 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="hHh lpR fFf">
+    <q-header elevated class="bg-primary text-white">
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
+        <q-toolbar-title> Title </q-toolbar-title>
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+        <q-space />
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn flat @click="onClick"
+          ><q-icon name="fa-solid fa-gear" class="q-px-md" />Settings</q-btn
+        >
+        <q-btn flat @click="logout"
+          ><q-icon
+            name="fa-solid fa-arrow-right-from-bracket"
+            class="q-px-md"
+          />Logout</q-btn
+        >
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
+    <!--Drawer-->
 
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" elevated>
+      <q-list>
+        <q-item to="/" exact clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon color="primary" name="home" size="md" />
+          </q-item-section>
+
+          <q-item-section>Home</q-item-section>
+        </q-item>
+
+        <q-separator />
+
+        <q-item to="/cpu" exact clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon color="primary" name="home" size="md" />
+          </q-item-section>
+
+          <q-item-section>CPU</q-item-section>
+        </q-item>
+
+        <q-separator />
+
+        <q-item clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon color="primary" name="home" size="md" />
+          </q-item-section>
+
+          <q-item-section>Rounded avatar-type icon</q-item-section>
+        </q-item>
+
+        <q-separator />
+
+        <q-item clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon color="primary" name="home" size="md" />
+          </q-item-section>
+
+          <q-item-section>Letter avatar-type</q-item-section>
+        </q-item>
+
+        <q-separator />
       </q-list>
     </q-drawer>
 
@@ -46,71 +72,27 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
+import { ref } from "vue";
+import supabaseInit from "src/boot/supabase";
+import { useRouter } from "vue-router";
 
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
-
-export default defineComponent({
-  name: 'MainLayout',
-
-  components: {
-    EssentialLink
-  },
-
-  setup () {
-    const leftDrawerOpen = ref(false)
+export default {
+  setup() {
+    const supabase = supabaseInit;
+    const router = useRouter();
+    const leftDrawerOpen = ref(false);
+    const logout = async () => {
+      await supabase.auth.signOut();
+      router.push({ name: "LoginPage" });
+    };
 
     return {
-      essentialLinks: linksList,
+      logout,
       leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-})
+      toggleLeftDrawer() {
+        leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+    };
+  },
+};
 </script>
