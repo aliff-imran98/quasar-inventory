@@ -1,10 +1,15 @@
 <!-- src/pages/RegisterPage.vue -->
 <template>
-  <q-form @submit="register">
-    <q-input v-model="email" label="Email" />
-    <q-input v-model="password" label="Password" type="password" />
-    <q-btn type="submit" label="Register" color="primary" />
-  </q-form>
+  <q-page>
+    <q-container>
+      <q-form @submit="register">
+        <q-input v-model="email" label="Email" />
+        <q-input v-model="password" label="Password" type="password" />
+        <q-btn type="submit" label="Register" color="primary" />
+        <q-btn @click="loginPage" label="Login Page" color="primary" />
+      </q-form>
+    </q-container>
+  </q-page>
 </template>
 
 <script>
@@ -38,10 +43,15 @@ export default {
       }
     };
 
+    const loginPage = () => {
+      router.push({ name: "LoginPage" });
+    };
+
     return {
       email,
       password,
       register,
+      loginPage,
     };
   },
 };

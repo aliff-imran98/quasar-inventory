@@ -1,9 +1,14 @@
 <template>
-  <q-form @submit="login">
-    <q-input v-model="email" label="Email" />
-    <q-input v-model="password" label="Password" type="password" />
-    <q-btn type="submit" label="Login" color="primary" />
-  </q-form>
+  <q-page>
+    <q-container>
+      <q-form @submit="login">
+        <q-input v-model="email" label="Email" />
+        <q-input v-model="password" label="Password" type="password" />
+        <q-btn type="submit" label="Login" color="primary" />
+        <q-btn @click="registerPage" label="Register Page" color="primary" />
+      </q-form>
+    </q-container>
+  </q-page>
 </template>
 
 <script>
@@ -36,10 +41,15 @@ export default {
       }
     };
 
+    const registerPage = () => {
+      router.push({ name: "RegisterPage" });
+    };
+
     return {
       email,
       password,
       login,
+      registerPage,
     };
   },
 };
