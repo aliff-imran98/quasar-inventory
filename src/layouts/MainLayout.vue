@@ -3,7 +3,7 @@
     <q-header elevated class="bg-primary text-white">
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
-        <q-toolbar-title> Title </q-toolbar-title>
+        <q-toolbar-title> Computer Inventory </q-toolbar-title>
 
         <q-space />
 
@@ -25,7 +25,7 @@
       <q-list>
         <q-item to="/" exact clickable v-ripple>
           <q-item-section avatar>
-            <q-icon color="primary" name="home" size="md" />
+            <q-icon name="home" size="md" />
           </q-item-section>
 
           <q-item-section>Home</q-item-section>
@@ -35,7 +35,7 @@
 
         <q-item to="/cpu" exact clickable v-ripple>
           <q-item-section avatar>
-            <q-icon color="primary" name="home" size="md" />
+            <q-icon name="fa-solid fa-microchip" size="md" />
           </q-item-section>
 
           <q-item-section>CPU</q-item-section>
@@ -43,22 +43,21 @@
 
         <q-separator />
 
-        <q-item clickable v-ripple>
+        <q-item to="/mobo" exact clickable v-ripple>
           <q-item-section avatar>
-            <q-icon color="primary" name="home" size="md" />
+            <q-icon name="fa-solid fa-desktop" size="md" />
           </q-item-section>
 
-          <q-item-section>Rounded avatar-type icon</q-item-section>
+          <q-item-section>Motherboard</q-item-section>
         </q-item>
 
         <q-separator />
 
-        <q-item clickable v-ripple>
+        <q-item to="/gpu" clickable v-ripple>
           <q-item-section avatar>
-            <q-icon color="primary" name="home" size="md" />
+            <q-icon name="fa-solid fa-image" size="md" />
           </q-item-section>
-
-          <q-item-section>Letter avatar-type</q-item-section>
+          <q-item-section>Graphic Card</q-item-section>
         </q-item>
 
         <q-separator />
