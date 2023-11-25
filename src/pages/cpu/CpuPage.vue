@@ -1,10 +1,10 @@
-// src/pages/MyPage.vue
 <template>
-  <q-page>
+  <q-page class="q-ma-md">
     <q-btn
       @click="$router.push({ name: 'createCpu' })"
       label="Create CPU"
       color="primary"
+      class="q-ma-md"
     />
     <q-table :rows="tableData" :columns="columns" row-key="id"
       ><template v-slot:body-cell-actions="props">
@@ -80,7 +80,7 @@ export default {
     const editRow = (row) => {
       // Handle edit action, e.g., open a dialog for editing
       console.log("Editing row:", row);
-      router.push({ name: "edit", params: { id: row.id } });
+      router.push({ name: "cpuEdit", params: { id: row.id } });
     };
 
     const deleteRow = async (row) => {
