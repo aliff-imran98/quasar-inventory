@@ -7,7 +7,7 @@
 
         <q-space />
 
-        <q-btn flat @click="onClick"
+        <q-btn flat @click="settingsPage"
           ><q-icon name="fa-solid fa-gear" class="q-px-md" />Settings</q-btn
         >
         <q-btn flat @click="logout"
@@ -64,7 +64,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container class="bg-grey-4">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -80,13 +80,19 @@ export default {
     const supabase = supabaseInit;
     const router = useRouter();
     const leftDrawerOpen = ref(false);
+
     const logout = async () => {
       await supabase.auth.signOut();
       router.push({ name: "LoginPage" });
     };
 
+    const settingsPage = () => {
+      router.push({ name: "Settings" });
+    };
+
     return {
       logout,
+      settingsPage,
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
