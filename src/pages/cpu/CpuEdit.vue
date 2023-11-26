@@ -1,29 +1,27 @@
 <template>
-  <q-page>
-    <q-container>
-      <div class="full-width" style="max-width: 900px">
+  <q-page class="q-pa-md">
+    <q-container class="row wrap justify-center items-start content-start">
+      <q-card style="overflow: auto; min-width: 800px; max-width: 800px">
         <div class="text-h6 text-center q-ma-md">Edit CPU</div>
-        <q-card class="q-ma-sm">
-          <q-card-section>
-            <q-form @submit="updateCpu">
-              <q-input v-model="cpuData.cpu_name" label="CPU Name" />
-              <q-input v-model="cpuData.cpu_brand" label="CPU Brand" />
-              <q-input
-                v-model="cpuData.cpu_cost"
-                label="CPU Cost"
-                type="number"
-              />
-              <q-input v-model="cpuData.cpu_serial" label="CPU Serial" />
-              <q-btn
-                class="q-ma-md"
-                type="submit"
-                label="Update CPU"
-                color="primary"
-              />
-            </q-form>
-          </q-card-section>
-        </q-card>
-      </div>
+        <q-card-section>
+          <q-form @submit="updateCpu">
+            <q-input v-model="cpuData.cpu_name" label="CPU Name" />
+            <q-input v-model="cpuData.cpu_brand" label="CPU Brand" />
+            <q-input
+              v-model="cpuData.cpu_cost"
+              label="CPU Cost"
+              type="number"
+            />
+            <q-input v-model="cpuData.cpu_serial" label="CPU Serial" />
+            <q-btn
+              class="q-ma-md"
+              type="submit"
+              label="Update CPU"
+              color="primary"
+            />
+          </q-form>
+        </q-card-section>
+      </q-card>
     </q-container>
   </q-page>
 </template>

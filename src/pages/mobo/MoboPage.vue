@@ -6,7 +6,11 @@
       color="primary"
       class="q-ma-md"
     />
-    <q-table :rows="tableData" :columns="columns" row-key="id"
+    <q-table
+      :rows="tableData"
+      :columns="columns"
+      row-key="id"
+      :rows-per-page-options="[10, 20, 30, 40]"
       ><template v-slot:body-cell-actions="props">
         <q-td :props="props">
           <q-btn icon="mode_edit" @click="editRow(props.row)"></q-btn>

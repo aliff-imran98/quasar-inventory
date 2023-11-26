@@ -1,17 +1,30 @@
 <template>
-  <q-page>
-    <q-container>
-      <q-form @submit="updateMobo">
-        <q-input v-model="moboData.mobo_name" label="Motherboard Name" />
-        <q-input v-model="moboData.mobo_brand" label="Motherboard Brand" />
-        <q-input
-          v-model="moboData.mobo_cost"
-          label="Motherboard Cost"
-          type="number"
-        />
-        <q-input v-model="moboData.mobo_serial" label="Motherboard Serial" />
-        <q-btn type="submit" label="Update Motherboard" color="primary" />
-      </q-form>
+  <q-page class="q-pa-md">
+    <q-container class="row wrap justify-center items-start content-start">
+      <q-card style="overflow: auto; min-width: 800px; max-width: 800px">
+        <div class="text-h6 text-center q-ma-md">Edit CPU</div>
+        <q-card-section>
+          <q-form @submit="updateMobo">
+            <q-input v-model="moboData.mobo_name" label="Motherboard Name" />
+            <q-input v-model="moboData.mobo_brand" label="Motherboard Brand" />
+            <q-input
+              v-model="moboData.mobo_cost"
+              label="Motherboard Cost"
+              type="number"
+            />
+            <q-input
+              v-model="moboData.mobo_serial"
+              label="Motherboard Serial"
+            />
+            <q-btn
+              class="q-ma-md"
+              type="submit"
+              label="Update Motherboard"
+              color="primary"
+            />
+          </q-form>
+        </q-card-section>
+      </q-card>
     </q-container>
   </q-page>
 </template>
