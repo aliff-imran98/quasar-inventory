@@ -17,6 +17,15 @@ const routes = [
         component: () => import("src/pages/HomePage.vue"),
       },
       {
+        path: "/settings",
+        name: "Settings",
+        meta: {
+          title: "Settings",
+          auth: true,
+        },
+        component: () => import("src/pages/SettingsPage.vue"),
+      },
+      {
         path: "/cpu",
         name: "cpu",
         meta: {
@@ -83,7 +92,7 @@ const routes = [
         path: "/gpuCreate",
         name: "createGpu",
         meta: {
-          title: "Create MotherBoard",
+          title: "Create Gpu",
           auth: true,
         },
         component: () => import("src/pages/gpu/GpuCreate.vue"),
@@ -92,7 +101,7 @@ const routes = [
         path: "/gpuEdit/:id",
         name: "gpuEdit",
         meta: {
-          title: "Edit MotherBoard",
+          title: "Edit Gpu",
           auth: true,
         },
         component: () => import("src/pages/gpu/GpuEdit.vue"),
@@ -118,7 +127,7 @@ const routes = [
         path: "login",
         name: "LoginPage",
         meta: {
-          title: "Register",
+          title: "Login",
           auth: false,
         },
         component: () => import("src/pages/LoginPage.vue"),
