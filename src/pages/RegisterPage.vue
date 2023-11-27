@@ -1,7 +1,7 @@
 <template>
   <q-page class="q-pa-md bg-grey-4">
     <q-container class="row wrap justify-center items-start content-start">
-      <q-card style="overflow: auto; min-width: 500px; max-width: 500px">
+      <q-card style="overflow: auto; min-width: 300px; max-width: 500px">
         <q-card-section>
           <div class="text-h6 text-center q-ma-md">Register</div>
           <q-form @submit="register">
