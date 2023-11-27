@@ -41,7 +41,7 @@ const routes = [
           title: "Create Cpu",
           auth: true,
         },
-        component: () => import("src/pages/cpu/CpuCreate.vue"),
+        component: () => import("src/pages/cpu/CpuCreatePage.vue"),
       },
       {
         path: "/cpuEdit/:id",
