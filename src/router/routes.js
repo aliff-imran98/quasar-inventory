@@ -34,7 +34,7 @@ const routes = [
         },
         component: () => import("src/pages/cpu/CpuPage.vue"),
       },
-      {
+      /*{
         path: "/cpuCreate",
         name: "createCpu",
         meta: {
@@ -42,7 +42,7 @@ const routes = [
           auth: true,
         },
         component: () => import("src/pages/cpu/CpuCreate.vue"),
-      },
+      },*/
       {
         path: "/cpuEdit/:id",
         name: "cpuEdit",
