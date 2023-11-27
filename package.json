@@ -11,9 +11,7 @@
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
     "build": "quasar build",
-    "deploy": "vercel",
-    "dev:ssr": "quasar dev -m ssr",
-    "build:ssr": "node build/index.js && quasar build -m ssr"
+    "deploy": "vercel"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
